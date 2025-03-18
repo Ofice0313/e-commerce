@@ -14,8 +14,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Column(unique = true)
-    private String email;
     @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
@@ -32,10 +30,9 @@ public class Product {
 
     public Product(){}
 
-    public Product(Long id, String name, String email, String description, Double price, String imgUrl) {
+    public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.description = description;
         this.price = price;
         this.imgUrl = imgUrl;
@@ -55,14 +52,6 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getDescription() {
