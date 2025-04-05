@@ -18,7 +18,7 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
-    @Transactional
+    @Transactional(readOnly = true)
     public ProductDTO findById(Long id){
         Optional<Product> result = repository.findById(id);
         Product product = result.get();
@@ -46,6 +46,11 @@ public class ProductService {
         copyDtoToEntity(dto, entity);
         entity = repository.save(entity);
         return new ProductDTO(entity);
+    }
+
+    @Transactional
+    public  void delete(Long id){
+       repository.deleteById(id);
     }
 
     private void copyDtoToEntity(ProductDTO dto, Product entity) {
