@@ -26,6 +26,10 @@ public class ProductDTO {
         imgUrl = product.getImgUrl();
     }
 
+    public ProductDTO(){
+
+    }
+
     public Long getId() {
         return id;
     }
